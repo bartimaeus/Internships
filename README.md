@@ -4,11 +4,50 @@ If you are a user (i.e. NOT a developer) visit the [user guide](http://camdub.gi
 
 SAP is a suite of apps designed specifically for the BYU Humanaties Advisement Center. SAP is meant to be an all-in-one solution for college advisement centers. SAP is made up of the following applications. Following Sections contain information about each.
 
-- Internships
-- MyGuide
-- Scheduling
-- Admin
-- (TODO) Reports
+#### Features:
+
+- [x] Internships
+- [x] MyGuide
+- [x] Scheduling
+- [x] Admin
+
+#### TODO:
+
+- [_] Reports
+
+## Setup
+
+1.  Ensure that (Docker Desktop)[https://www.docker.com/products/docker-desktop] is running
+
+2.  Open a terminal and navigate to the project directory
+
+        cd [location-of-project-files]
+
+3.  Create `.env` config using `.env.example`
+
+        cp -n .env.example .env
+
+4.  Build the docker images
+
+        docker-compose build
+
+5.  Start the docker containers
+
+        docker-compose up
+
+6.  Provision the database
+
+        docker-compose run app bundle exec rake db:create db:migrate
+
+7.  Add test data
+
+    **NOTE:** Adding test data appears to be broken at present
+
+        docker-compose run app bundle exec rake app:load_demo_data
+
+8.  Open the application in a browser
+
+    http://localhost:3000
 
 ## Engines
 
