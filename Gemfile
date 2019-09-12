@@ -22,6 +22,7 @@ gem 'jquery-rails'
 # Use unicorn as the web server
 # gem 'unicorn'
 
+gem 'activerecord-mysql-adapter'
 gem 'mysql2', '~> 0.3.21'
 gem 'annotate'
 gem 'turn'
