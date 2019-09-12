@@ -1,4 +1,4 @@
-FROM ruby:1.9.3
+FROM ruby:2.3
 
 LABEL maintainer="Eric Shelley <eric@webdesignbakery.com>"
 

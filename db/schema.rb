@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -18,22 +19,22 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.string   "phone"
     t.string   "email"
     t.integer  "department_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "academic_focus_types", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "academic_focuses", :force => true do |t|
     t.string   "name"
     t.integer  "academic_focus_type_id"
     t.integer  "department_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "academic_focuses_internships", :id => false, :force => true do |t|
@@ -48,29 +49,29 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
 
   create_table "colleges", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "countries", :force => true do |t|
     t.string   "name"
     t.string   "un_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.integer  "college_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "fields", :force => true do |t|
     t.string   "name"
     t.integer  "industry_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "fields_internships", :id => false, :force => true do |t|
@@ -80,19 +81,19 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
 
   create_table "financial_assistance_option_types", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "financial_assistance_options", :force => true do |t|
     t.string   "name"
     t.integer  "financial_assistance_option_type_id"
-    t.float    "how_much"
+    t.integer  "how_much"
     t.text     "qualifications"
     t.string   "source"
     t.string   "website"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "financial_assistance_options_internships", :id => false, :force => true do |t|
@@ -102,22 +103,22 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
 
   create_table "industries", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "internship_instances", :force => true do |t|
     t.integer  "internship_id"
     t.integer  "student_id"
     t.text     "comments"
-    t.decimal  "rating"
+    t.decimal  "rating",        :precision => 10, :scale => 0
     t.boolean  "recommended"
     t.integer  "semester_id"
     t.boolean  "job_offered"
     t.boolean  "job_accepted"
     t.boolean  "can_contact"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   create_table "internships", :force => true do |t|
@@ -126,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.boolean  "is_paid"
     t.boolean  "is_full_time"
     t.boolean  "is_part_time"
-    t.float    "stipend"
+    t.text     "stipend"
     t.text     "description"
     t.text     "qualifications"
     t.text     "qualifications_academic"
@@ -135,10 +136,10 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.integer  "academic_contact_id"
     t.integer  "provider_contact_id"
     t.text     "application_process"
-    t.date     "deadline"
+    t.string   "deadline"
     t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "user_id"
   end
 
@@ -159,23 +160,23 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "locations", :force => true do |t|
     t.string   "city"
     t.integer  "state_id"
     t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "long_term_goals", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
   end
 
@@ -191,14 +192,14 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.string   "fax"
     t.boolean  "can_call"
     t.integer  "provider_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "provider_types", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "providers", :force => true do |t|
@@ -208,15 +209,15 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.boolean  "agreement_on_file"
     t.integer  "provider_type_id"
     t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
@@ -226,8 +227,8 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
 
   create_table "semesters", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "short_term_goals", :force => true do |t|
@@ -235,37 +236,37 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.text     "description"
     t.integer  "school_year"
     t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
   end
 
   create_table "states", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "students", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.decimal  "gpa"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.decimal  "gpa",        :precision => 3, :scale => 2
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "tags", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "short_term_goal_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "tasks_users", :id => false, :force => true do |t|
@@ -277,8 +278,8 @@ ActiveRecord::Schema.define(:version => 20111118053112) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "net_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
