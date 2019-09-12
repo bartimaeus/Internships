@@ -18,7 +18,7 @@ COPY . .
 ### Development environment setup ###
 # Set the TERM and SHELL environment variables
 ENV TERM xterm-256color
-ENV SHELL $(which sh)
+ENV SHELL $(which bash)
 
 ### Development environment customizations ###
 RUN echo "export PAGER=more" >> ~/.bashrc && \
